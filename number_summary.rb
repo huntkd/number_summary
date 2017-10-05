@@ -9,11 +9,7 @@ def mean (list)
 	end
 	average = total_sum / list.count
 
-	if average % 1 == 0
-		return average
-	else
-
-	end
+	return average
 end
 
 # print mean([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
@@ -30,13 +26,31 @@ def median (array)
 
 end
 
-print median([1, 3, 6, 7, 4, 9, 2, 5])
-print median([1, 2, 4, 5, 6, 7, 8, 9, 10, 11])
-print median([11, 8, 6, 7])
+def standard_deviation (list)
 
-def standard_deviation
+	total_sum = 0.0000
+	average = 0.0000
+	list.each do |number|
+		total_sum += number
+	end
+	average = total_sum / list.count
 
+	square_list = []
+	total_square_sum = 0.0000
+	standard_deviation = 0.0000
+	list.each do |number|
+		square_list.push((number - average)*(number - average))
+	end
+	square_list.each do |number|
+		total_square_sum += number
+		standard_deviation = total_square_sum / list.count
+	end
+	return standard_deviation
 end
+
+# print standard_deviation([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+# print standard_deviation([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11])
+print standard_deviation([11, 8, 6])
 
 
 def mode
